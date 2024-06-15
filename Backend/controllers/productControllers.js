@@ -27,7 +27,7 @@ exports.getAllProducts= catchAsynErrors(async(req,res)=>{
     const productsCount= await Product.countDocuments();
    const apifeature= new  ApiFeatures(Product.find(),req.query).search().filter().pagination(resultperPage);
     const products= await apifeature.query;
-    res.status(200).json({message:"Route is working fine",products,productsCount,})
+    res.status(200).json({message:"Route is working fine",products,productsCount,resultperPage})
 })
 
 //update products
